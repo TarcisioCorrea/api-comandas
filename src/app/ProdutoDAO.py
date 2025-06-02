@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from domain.entities.Produto import Produto
+
 router = APIRouter()
 
 # Criar os endpoints de Cliente: GET, POST, PUT, DELETE
@@ -11,12 +13,14 @@ def get_produto(id: int):
     return {"msg": "get um executado"}, 200
 
 @router.post("/produto/", tags=["Produto"])
-def post_produto():
-    return {"msg": "post executado"}, 200
+def post_produto(corpo: Produto):
+    return {"msg": "post executado", "nome": corpo.nome, "descricao": corpo.descricao, "foto":
+corpo.foto, "valor_unitario": corpo.valor_unitario}, 200
 
 @router.put("/produto/{id}", tags=["Produto"])
-def put_produto(id: int):
-    return {"msg": "put executado"}, 200
+def put_produto(id: int, corpo: Produto):
+    return {"msg": "put executado", "id":id, "nome": corpo.nome, "descricao": corpo.descricao, "foto":
+corpo.foto, "valor_unitario": corpo.valor_unitario}, 200
 
 @router.delete("/produto/{id}", tags=["Produto"])
 def delete_produto(id: int):
