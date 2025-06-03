@@ -25,9 +25,11 @@ curl -X 'GET' 'http://127.0.0.1:8000/token/logado/' \
 
 ### Verbo GET – listar um
 GET http://localhost:8000/cliente/10 HTTP/1.1
+Authorization: Bearer {{token}}
 
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/cliente/ HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -38,6 +40,7 @@ Content-Type: application/json
 
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/cliente/2 HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -48,3 +51,4 @@ Content-Type: application/json
 
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/cliente/3 HTTP/1.1
+Authorization: Bearer {{token}}

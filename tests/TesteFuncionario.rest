@@ -1,8 +1,5 @@
 @token = a041b92755d93425495bcdbf139cf58292cdae010f8c153c81a3413b8d840b06
 
-### Verbo GET – listar todos
-GET http://localhost:8000/funcionario/ HTTP/1.1
-Authorization: Bearer {{token}}
 
 ### Verbo GET – listar todos
 curl -X 'GET' 'http://localhost:8000/funcionario/' \
@@ -16,18 +13,24 @@ curl -X 'POST' 'http://127.0.0.1:8000/token' \
     -d 'username=abc&password=bolinhas'
 
 ### token gerado
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDg5MjM0MTZ9.BDyA9hBEcP4u_tj09E1yV_OlEsWwWuCwqxX25TjwtDk
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDg5MjQzOTh9.OPO2xeY5VHSSp54pkP2kmFhRo7hhjec_wLeVpt1wXKA
 
 ### teste token
 curl -X 'GET' 'http://127.0.0.1:8000/token/logado/' \
     -H 'accept: application/json' \
     -H 'Authorization: Bearer {{token}}'
 
+### Verbo GET – listar todos
+GET http://localhost:8000/funcionario/ HTTP/1.1
+Authorization: Bearer {{token}}
+
 ### Verbo GET – listar um
 GET http://localhost:8000/funcionario/10 HTTP/1.1
+Authorization: Bearer {{token}}
 
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/funcionario/ HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -41,6 +44,7 @@ Content-Type: application/json
 
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/funcionario/2 HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -54,3 +58,4 @@ Content-Type: application/json
 
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/funcionario/3 HTTP/1.1
+Authorization: Bearer {{token}}
